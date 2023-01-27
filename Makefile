@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------
-# Makefile for CSE 130 asgn2
+# Makefile for HTTP Server
 #
 # make                   makes httpserver
 # make clean             removes all binaries

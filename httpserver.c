@@ -1,6 +1,6 @@
 /*********************************************************************************
-* Mia Telles, mwtelles
-* Spring 2022, CSE130 asgn4
+* Mia Telles
+* Spring 2022
 * httpserver.c
 * creates an httpserver
 *********************************************************************************/
@@ -91,7 +91,6 @@ void write_temp(
 
 /**
    Parses the Header-Fields.
-   This function is my pride and joy and it is perfect.
  */
 List handle_header(char buffer[], int *cursor) {
     regex_t regex;
@@ -351,11 +350,6 @@ static void handle_connection(int connfd) {
 static void sigterm_handler(int sig) {
     if (sig == SIGTERM) {
         warnx("received SIGTERM");
-        //pthread_cond_broadcast(&empty);
-        //pthread_cond_broadcast(&full);
-        //for (int i = 0; i < thread_num; i++) {
-        //    pthread_join(tid[i], NULL);
-        //}
         pthread_mutex_destroy(&lock);
         freeQueue(&tasks);
         free(tid);

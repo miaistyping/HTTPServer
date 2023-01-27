@@ -1,12 +1,10 @@
 # httpserver
-by Mia Telles, CSE 130 Spring 2022, 06/1/22
+by Mia T, 06/1/22
 
-This README builds off my previous README from asgn3. New asgn4 additions are underneath small bold text.
+New additions are underneath small bold text.
 
 ## httpserver.c
 
-### usage(), strtouint16(), and create_listen_socket()
-These functions were in the starter code given by Dr. Quinn. Thank you Dr. Quinn.
 
 ### main()
 main() is where we create our worker threads which act on our consumer() function. Along with producer(), this acts as our dispatcher thread.
@@ -50,7 +48,7 @@ If the uri to be PUT to already exists then I send a 200 response, but if it nee
 
 If the errno becomes ENOTDIR after opening the URI, then a 500 Internal Server Error is sent.
 
-**New asgn4 changes**
+**New changes**
 
 I use an exclusive flock() around the process where I write to the uri in order to maintain atomicity and coherency. This is achieved as flock() will block exclusive locks from other PUT/APPEND processes.
 
@@ -59,7 +57,7 @@ This function opens the uri to APPEND to and handles errors unique to APPEND.
 
 If the errno becomes ENOTDIR after opening the URI, then a 500 Internal Server Error is sent.
 
-**New asgn4 changes**
+**New changes**
 
 I use an exclusive flock() around the process where I write to the uri in order to maintain atomicity and coherency. This is achieved as flock() will block exclusive locks from other PUT/APPEND processes.
 
@@ -74,7 +72,7 @@ This function also detects whether any of the Header-Fields contains a Content-L
 The linked list of key value pairs are returned.
 
 ### write_temp()
-**New asgn4 function**
+**New function**
 
 A function that reads the Message-Body from connfd and writes it to a temporary file.
 
@@ -83,14 +81,11 @@ This function first writes from the string that I saved the return value of strs
 In order to maintain the position of the file cursor in between my reads/writes for the temporary file and then the uri, I use lseek() to reset the file cursor position back to 0 after the message body is written to the temporary file.
 
 ### read_write_message()
-**New asgn4 changes**
+**New changes**
 
 A function that reads the Message-Body from a source file and writes it to a destination file.
 
 ## httphelpers.c
-
-### read_all() and write_all()
-These functions were given out by Eugene in his discussion sections. Thank you Eugene.
 
 ### free_requests()
 This function frees the memory allocated for regex parsing purposes in requests().
@@ -101,7 +96,7 @@ This function loops through the linked list of key value pairs and identifies th
 ### get_response()
 This function handles the unique response that is associated with a GET request. This function reads from the uri and writes to connfd in increments of 2048 in order to accomodate large files.
 
-**New asgn4 changes**
+**New changes**
 
 I use a shared flock() around my process where I read from the uri in order to block exclusive locks from PUT/APPEND while GET is reading from the uri
 
@@ -109,7 +104,7 @@ I use a shared flock() around my process where I read from the uri in order to b
 This function sends different responses to connfd depending on the status code that is passed into it.
 
 ## List.c
-This is a Linked List ADT that I made last year in CSE 101. Thanks Tantalo!
+This is a Linked List ADT that I made last year in CSE 101.
 I made small additions to this ADT in order to handle having a string key and integer value pair.
 
 ## queue.c

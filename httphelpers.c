@@ -1,6 +1,6 @@
 /*********************************************************************************
-* Mia Telles, mwtelles
-* Spring 2022, CSE130 asgn4
+* Mia T
+* Spring 2022
 * httphelpers.c
 * helper functions for httpserver.c
 *********************************************************************************/
@@ -19,7 +19,6 @@
 #define BUF_SIZE 2048
 
 /**
-   Eugene's read_all() from section.
    Guarantees reading nbytes.
  */
 ssize_t read_all(int connfd, char buffer[], size_t nbytes) {
@@ -38,7 +37,6 @@ ssize_t read_all(int connfd, char buffer[], size_t nbytes) {
 }
 
 /**
-   Eugene's write_all() from section.
    Guarantees writing nbytes.
  */
 ssize_t write_all(int connfd, char buffer[], size_t nbytes) {
